@@ -31,16 +31,20 @@ import Vision
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var resultsTextView: UITextView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    
     let model = try? VNCoreMLModel(for: Resnet50().model)
     let imagePicker = UIImagePickerController()
     
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var resultsTextView: UITextView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        activityIndicator.isHidden = true
         imagePicker.delegate = self
     }
     
@@ -53,7 +57,6 @@ class ViewController: UIViewController {
     @IBAction func chooseImageButtonTapped(_ sender: Any) {
         
         imagePicker.allowsEditing = false
-        
         
         
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -99,20 +102,35 @@ class ViewController: UIViewController {
         
         if let image = imageView.image {
             
-            let request = VNCoreMLRequest(model: model!, completionHandler: processPredictionResults)
-            let handler = VNImageRequestHandler(cgImage: image.cgImage!)
-            try? handler.perform([request])
+            updateUIState()
+            
+            resultsTextView.text.removeAll()
+            resultsTextView.textAlignment = .center
+            resultsTextView.text.append("Predicting...")
+            
+            DispatchQueue.global().async {
+                
+                let request = VNCoreMLRequest(model: self.model!, completionHandler: self.processPredictionResults)
+                let handler = VNImageRequestHandler(cgImage: image.cgImage!)
+                
+                DispatchQueue.main.async {
+                    try? handler.perform([request])
+                }
+                
+            }
+            
             
         }
     }
     
     
     
-    func processPredictionResults(request: VNRequest, error: Error?) {
+   private func processPredictionResults(request: VNRequest, error: Error?) {
         guard let results = request.results as? [VNClassificationObservation]
             else { fatalError("Error making the prediction") }
         
         resultsTextView.text.removeAll()
+        resultsTextView.textAlignment = .left
         
         for classification in results {
             
@@ -123,7 +141,37 @@ class ViewController: UIViewController {
             resultsTextView.text.append("\n\(classification.identifier), \(classification.confidence)\n")
         }
         
+        updateUIState()
+        
     }
+    
+    
+    private func updateUIState() {
+        
+        if activityIndicator.isAnimating {
+            
+            activityIndicator.stopAnimating()
+            activityIndicator.isHidden = true
+            view.alpha = 1.0
+            
+            UIApplication.shared.endIgnoringInteractionEvents()
+            
+            
+            
+        } else {
+            
+            UIApplication.shared.beginIgnoringInteractionEvents()
+            
+            view.alpha = 0.8
+            activityIndicator.startAnimating()
+            activityIndicator.isHidden = false
+            
+            
+        }
+        
+        
+    }
+    
     
 }
 
