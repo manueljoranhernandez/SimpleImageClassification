@@ -11,7 +11,7 @@
 		640465AB1EE88FCF00F04A68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 640465AA1EE88FCF00F04A68 /* Assets.xcassets */; };
 		640465AE1EE88FCF00F04A68 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 640465AC1EE88FCF00F04A68 /* LaunchScreen.storyboard */; };
 		640465B61EE88FEE00F04A68 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640465B51EE88FEE00F04A68 /* ViewController.swift */; };
-		640465B91EE88FF400F04A68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 640465B71EE88FF400F04A68 /* Main.storyboard */; };
+		6421184D1EEB0ADD005BA040 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6421184C1EEB0A9C005BA040 /* Main.storyboard */; };
 		64638BEF1EE89B06008E3A2A /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 64638BED1EE89AB5008E3A2A /* Resnet50.mlmodel */; };
 /* End PBXBuildFile section */
 
@@ -22,7 +22,7 @@
 		640465AD1EE88FCF00F04A68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		640465AF1EE88FCF00F04A68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		640465B51EE88FEE00F04A68 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		640465B81EE88FF400F04A68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "../../swift aprentice playground/Expresions, Variables, and Constants/MLImageTest/MLImageTest/Base.lproj/Main.storyboard"; sourceTree = "<group>"; };
+		6421184C1EEB0A9C005BA040 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		64638BED1EE89AB5008E3A2A /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,7 +59,7 @@
 			children = (
 				640465A31EE88FCF00F04A68 /* AppDelegate.swift */,
 				640465B51EE88FEE00F04A68 /* ViewController.swift */,
-				640465B71EE88FF400F04A68 /* Main.storyboard */,
+				6421184C1EEB0A9C005BA040 /* Main.storyboard */,
 				640465AA1EE88FCF00F04A68 /* Assets.xcassets */,
 				640465AC1EE88FCF00F04A68 /* LaunchScreen.storyboard */,
 				640465AF1EE88FCF00F04A68 /* Info.plist */,
@@ -125,7 +125,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				640465B91EE88FF400F04A68 /* Main.storyboard in Resources */,
+				6421184D1EEB0ADD005BA040 /* Main.storyboard in Resources */,
 				640465AE1EE88FCF00F04A68 /* LaunchScreen.storyboard in Resources */,
 				640465AB1EE88FCF00F04A68 /* Assets.xcassets in Resources */,
 			);
@@ -153,14 +153,6 @@
 				640465AD1EE88FCF00F04A68 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		640465B71EE88FF400F04A68 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				640465B81EE88FF400F04A68 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

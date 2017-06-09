@@ -44,7 +44,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        activityIndicator.isHidden = true
+        
         imagePicker.delegate = self
     }
     
@@ -151,7 +151,7 @@ class ViewController: UIViewController {
         if activityIndicator.isAnimating {
             
             activityIndicator.stopAnimating()
-            activityIndicator.isHidden = true
+            
             view.alpha = 1.0
             
             UIApplication.shared.endIgnoringInteractionEvents()
@@ -163,8 +163,9 @@ class ViewController: UIViewController {
             UIApplication.shared.beginIgnoringInteractionEvents()
             
             view.alpha = 0.8
+            
             activityIndicator.startAnimating()
-            activityIndicator.isHidden = false
+            
             
             
         }
